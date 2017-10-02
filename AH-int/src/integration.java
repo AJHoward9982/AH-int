@@ -1,10 +1,7 @@
-import java.util.Scanner;
 
-import com.sun.org.apache.bcel.internal.classfile.Method;
 /**
  * Andrew Howard
  * 
- * Basketball stats program
  *
  */
 public class integration {
