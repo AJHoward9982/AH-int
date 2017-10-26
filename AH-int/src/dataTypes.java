@@ -1,4 +1,3 @@
-import javafx.scene.chart.PieChart.Data;
 
 public class dataTypes { 
 	
@@ -21,6 +20,11 @@ public class dataTypes {
 		double F = (double) 1.43235; //accurate storage of decimals. Used commonly for money
 		boolean G = true & false; //boolean logic storage    true/false
 		char H = 'A' ;
+		int[] array = new int[5]; //An array stores a fixed amount of the same data type
+		for (int arrInt = 0; arrInt < 5; arrInt++) {
+			array[arrInt]= arrInt + 1;
+		}
+		
 		String I = "A string is a complex data type";
 		
 		System.out.println( A );
@@ -32,5 +36,8 @@ public class dataTypes {
 		System.out.println( G );
 		System.out.println( H );
 		System.out.println( I );
+		System.out.println( "Array position 5 is " + array[4] );
+		System.out.println( "Position 3 is " + array[2] );
 	}
+	
 }

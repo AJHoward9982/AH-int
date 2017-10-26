@@ -6,11 +6,6 @@
  */
 public class integration {
 
-	public Scanner scan; {
-	/**
-	 * @param args
-	 */
-	}
 	
 	public static void main(String[] args) {
 		
