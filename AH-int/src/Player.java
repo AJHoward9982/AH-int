@@ -1,12 +1,16 @@
-
 public class Player {
-
-	private String playerName;
-	private int pScored; //points scored
-	private int steals;
-	private int blocks;    // all will be used to calculate score
-	private int rebounds;
-	private int fouls; //fouls made
+	String playerName;
+	int pNumber; //Jersey number
+	int pScored; //points scored
+	int steals;
+	int blocks;    // all will be used to calculate score
+	int rebounds;
+	int fouls; //fouls made
 	
+	void playerScore() {
+		int score = (pScored + steals + blocks + rebounds) - fouls;
+		
+		System.out.println( playerName + " has a score of " + score + " and wears number " + pNumber);
+	}
 }
 

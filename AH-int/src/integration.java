@@ -13,6 +13,16 @@ public class integration {
 		
 		dataDemo();	// Calling my data type demo
 		
+		Player kIrving = new Player();
+		kIrving.playerName = "Kyrie Irving";
+		kIrving.pNumber = 11;
+		kIrving.pScored = 25;
+		kIrving.steals = 3;
+		kIrving.blocks = 4;
+		kIrving.rebounds = 11;
+		kIrving.fouls =	3;
+		
+		kIrving.playerScore();
 	}
 	
 	public static void dataDemo() {
