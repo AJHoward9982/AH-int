@@ -38,6 +38,9 @@ public class dataTypes {
 		System.out.println( I );
 		System.out.println( "Array position 5 is " + array[4] );
 		System.out.println( "Position 3 is " + array[2] );
+		
+	
+	
 	}
 	
 }

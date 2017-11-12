@@ -1,4 +1,7 @@
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
 /**
  * Andrew Howard
  * 
@@ -7,10 +10,13 @@
 
 public class integration {
 
+	static Boolean cont = true;
 	
 	public static void main(String[] args) {
 		
-		Boolean cont = true; //Continue running
+		Scanner scan = new Scanner(System.in);
+		
+		int[] arr = { 10 , 42 , 52 , 14 , 21 };
 		
 		Player player1 = new Player("Kyrie" , 11 , 25 , 3 , 4 , 11 , 3);
 		Player player2 = new Player("Rondo" , 9 , 13 , 7 , 4 , 8 , 5);
@@ -22,29 +28,94 @@ public class integration {
 		players.add(player2);
 		players.add(player3);
 		
-		if (cont) {
-			
-			String caseVal = scan.nextLn(); //Which case to run
+		if (cont == true) {
 			
 			System.out.println("Select a letter: ");
 			System.out.println("a: Run the data type demo");
 			System.out.println("b: Show the stored players");
 			System.out.println("c: Display a players' data");
+			System.out.println("d: Input a number and it will be counted back to you");
+			System.out.println("e: Array demo");
+			System.out.println("f: HashMap demo");
+			System.out.println("f: Operators demo");
 			System.out.println("Type 'Quit' to stop the program");
+			
+			String caseVal = scan.nextLine(); //Which case to run
 			
 			switch (caseVal) {
 				
-			case "a" : 
-				dataDemo();
-				break;
-			case "b" : 
-				System.out.println( player1.pName );
-				System.out.println( player2.pName );
-				System.out.println( player3.pName );
-				break;
+				case "a" : 
+					dataDemo();
+					break;
 				
+				case "b" : 
+					System.out.println( player1.playerName );
+					System.out.println( player2.playerName );
+					System.out.println( player3.playerName );
+					break;
 				
+				case "c" :
+					
+					Iterator itr = players.iterator();
+					while(itr.hasNext()) {
+						Player player = (Player)itr.next();
+						
+						System.out.println( player.playerName + "'s number is " + player.pNumber + ".");
+						System.out.println( player.playerName + " scored " + player.pScored + "points.");
+						System.out.println( player.playerName + " had " + player.steals + " steals.");
+						System.out.println( player.playerName + " had " + player.blocks + " blocks.");
+						System.out.println( player.playerName + " had " + player.rebounds + " rebounds.");
+						System.out.println( player.playerName + " had " + player.fouls + " fouls.");
+						System.out.println("\n");
+					}
+					break;
+				
+				case "d" : 
+					System.out.println("Enter a number:");
+					
+					int times = scan.nextInt();
+					
+					for ( int i = 0; i < times ; i++) {
+						System.out.print( i + 1) ;
+						if ( i < (times - 1)) {
+							System.out.print(" , ");
+						}
+					}
+					break;
+				
+				case "e" : 
+					
+					sort(arr);
+					
+					System.out.println("The sorted list is");
+					
+					for(int i=0; i < arr.length; i++) {
+						System.out.print(arr[i] + "  ");
+					}
+					
+					System.out.println("The sum is " + sum(arr) );
+					
+					break;
+				
+				case "f" : 
+					hashMapDemo();
+					break;
+				
+				case "g" : 
+					operators();
+					break;
+					
+				case "Quit" : 
+					cont = false;
+					break;
+				
+				default : 
+					System.out.println("Inpur error: Try again");
+					break;
+					
 			}
+			System.out.println("\n \n ");
+			main( args );
 		}
 		
 
@@ -68,6 +139,23 @@ public class integration {
 		
 	}
 	
+	public static void hashMapDemo() {
+		HashMap<Integer, Boolean> question = new HashMap<>();
+		
+		question.put(1, true);
+		question.put(2, false);
+		question.put(3, false);
+		question.put(4, true);
+		question.put(5, false);
+		
+		System.out.println( "The answer to question one is " + question.get(1) );
+		System.out.println( "The answer to question two is " + question.get(2) );
+		System.out.println( "The answer to question three is " + question.get(3) );
+		System.out.println( "The answer to question four is " + question.get(4) );
+		System.out.println( "The answer to question five is " + question.get(5) );
+			
+	}
+	
 	public static int add(int a , int b) {
 		
 		/*A method to add 2 numbers together, "int a" and "int b" are parameters
@@ -75,6 +163,45 @@ public class integration {
 		
 		int sum = a + b;
 		return sum;
+	}
+	
+	public static void operators() {
+		boolean Value1 = ( 4 < 5 );
+		boolean Value2 = ( 4 == 5 );
+		System.out.println("Statement one that 4 < 5 is " + Value1);
+		System.out.println("Statement two that 4 = 5 is " + Value2);
+	}
+	
+	public static int sum(int[] arr) {
+		
+		int sum = 0;
+		
+		for(int i=0; i < (arr.length); i++ ) {
+			sum += arr[i];
+		}
+		return sum;
+	}
+	
+	
+	public static int[] sort(int[] arr) {
+		for(int i=0; i < (arr.length - 1); i++ ) {
+			
+			for( int j = 0; j < arr.length - 1 - i; j++) {
+				
+				if ( arr[j] > arr[j+1] ) {
+
+					int t = arr[j]; //Holds the value of "i+1" so that "i" can replace it
+					
+					arr[j] = arr[j + 1];
+					
+					arr[j + 1] = t;
+	
+				}
+			
+			}
+		}
+
+		return arr;
 	}
 	
 	public static void demoMethods() {
