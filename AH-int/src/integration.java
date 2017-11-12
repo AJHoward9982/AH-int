@@ -4,15 +4,51 @@
  * 
  *
  */
+
 public class integration {
 
 	
 	public static void main(String[] args) {
 		
-		demoMethods();   //This is a call, what's inside the parenthesis of a call is an argument.
+		Boolean cont = true; //Continue running
 		
-		dataDemo();	// Calling my data type demo
+		Player player1 = new Player("Kyrie" , 11 , 25 , 3 , 4 , 11 , 3);
+		Player player2 = new Player("Rondo" , 9 , 13 , 7 , 4 , 8 , 5);
+		Player player3 = new Player("Shaq" , 34 , 20 , 0 , 7 , 15 , 4);
 		
+		ArrayList<Player> players = new ArrayList<Player>(); //Array List of Players
+		
+		players.add(player1);
+		players.add(player2);
+		players.add(player3);
+		
+		if (cont) {
+			
+			String caseVal = scan.nextLn(); //Which case to run
+			
+			System.out.println("Select a letter: ");
+			System.out.println("a: Run the data type demo");
+			System.out.println("b: Show the stored players");
+			System.out.println("c: Display a players' data");
+			System.out.println("Type 'Quit' to stop the program");
+			
+			switch (caseVal) {
+				
+			case "a" : 
+				dataDemo();
+				break;
+			case "b" : 
+				System.out.println( player1.pName );
+				System.out.println( player2.pName );
+				System.out.println( player3.pName );
+				break;
+				
+				
+			}
+		}
+		
+
+		/*
 		Player kIrving = new Player();
 		kIrving.playerName = "Kyrie Irving";
 		kIrving.pNumber = 11;
@@ -21,8 +57,7 @@ public class integration {
 		kIrving.blocks = 4;
 		kIrving.rebounds = 11;
 		kIrving.fouls =	3;
-		
-		kIrving.playerScore();
+		*/
 	}
 	
 	public static void dataDemo() {
