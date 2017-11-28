@@ -121,6 +121,7 @@ public class integration {
           break;
          
         case "x":
+          cont = false;
           gameAttempt();
           break;
 
@@ -146,13 +147,25 @@ public class integration {
 
   }
   
-  public static void printGrid() {
-  
+  public static void printGrid(String[][] grid ) {
+    
+    
+    for(int i = 0; i < 5; i++) {
+      
+      for(int j = 0; j < 5; j++){
+        System.out.print(grid[i][j]);
+      }
+      System.out.print("\n");
+    }
+    
   }
   
   public static void gameAttempt() {
     
-    int[][] grid = new int[5][5];
+    String[][] grid = new String[5][5];
+    grid[2][2] = "#";
+    printGrid(grid);
+    
     
   }
 
