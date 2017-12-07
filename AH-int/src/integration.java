@@ -147,7 +147,7 @@ public class integration {
 
   }
   
-  public static void printGrid(String[][] grid ) {
+  public static void printGrid(char[][] grid ) {
     
     
     for(int i = 0; i < 5; i++) {
@@ -162,8 +162,10 @@ public class integration {
   
   public static void gameAttempt() {
     
-    String[][] grid = new String[5][5];
-    grid[2][2] = "#";
+    char[][] grid = new char[5][5];
+    int posX = 2;
+    int posY = 1;
+    grid[posY][posX] = 'B';
     printGrid(grid);
     
     
