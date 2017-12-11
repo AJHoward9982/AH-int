@@ -162,11 +162,74 @@ public class integration {
   
   public static void gameAttempt() {
     
+	System.out.println("Move by typing w , a , s , or d then pressing enter. \n Type exit then press enter to stop running.");
+	  
     char[][] grid = new char[5][5];
+    for(int i=0 ; i < 5 ; i++) {
+    	for(int j = 0; j < 5; j++) {
+    		grid[i][j] = '.';
+    		
+    	}
+    	
+    }
+    
+    int score = 0;
     int posX = 2;
-    int posY = 1;
-    grid[posY][posX] = 'B';
+    int posY = 2;
+    grid[posY][posX] = '0';
     printGrid(grid);
+    
+    boolean gameCont = true;
+    while(gameCont == true) {
+    	Scanner input = new Scanner(System.in);
+    	String move = input.nextLine();
+    	if (move.equals("w")&& posY > 0) {
+    		grid[posY][posX] = '.';
+    		posY--;
+    		grid[posY][posX] = '0';
+    		printGrid(grid);
+    		
+    		score++;
+    		System.out.println(score);
+    	}
+    	if (move.equals("a") && posX > 0) {
+    		grid[posY][posX] = '.';
+    		posX--;
+    		grid[posY][posX] = '0';
+    		printGrid(grid);
+    		
+    		score++;
+    		System.out.println(score);
+    	}
+    	if (move.equals("s") && posY < 4) {
+    		grid[posY][posX] = '.';
+    		posY++;
+    		grid[posY][posX] = '0';
+    		printGrid(grid);
+    		
+    		score++;
+    		System.out.println(score);
+    	}
+    	if (move.equals("d") && posX < 4) {
+    		grid[posY][posX] = '.';
+    		posX++;
+    		grid[posY][posX] = '0';
+    		printGrid(grid);
+    		
+    		score++;
+    		System.out.println(score);
+    	}
+    	if (move.equals("exit")) {
+    		gameCont = false;
+    		cont = true;
+    	}
+    	else {
+    		printGrid(grid);
+    		System.out.println(score);
+    	}
+    	
+    			
+    }
     
     
   }
