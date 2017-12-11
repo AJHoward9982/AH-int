@@ -192,7 +192,7 @@ public class integration {
     		score++;
     		System.out.println(score);
     	}
-    	if (move.equals("a") && posX > 0) {
+    	else if (move.equals("a") && posX > 0) {
     		grid[posY][posX] = '.';
     		posX--;
     		grid[posY][posX] = '0';
@@ -201,7 +201,7 @@ public class integration {
     		score++;
     		System.out.println(score);
     	}
-    	if (move.equals("s") && posY < 4) {
+    	else if (move.equals("s") && posY < 4) {
     		grid[posY][posX] = '.';
     		posY++;
     		grid[posY][posX] = '0';
@@ -210,7 +210,7 @@ public class integration {
     		score++;
     		System.out.println(score);
     	}
-    	if (move.equals("d") && posX < 4) {
+    	else if (move.equals("d") && posX < 4) {
     		grid[posY][posX] = '.';
     		posX++;
     		grid[posY][posX] = '0';
@@ -219,7 +219,7 @@ public class integration {
     		score++;
     		System.out.println(score);
     	}
-    	if (move.equals("exit")) {
+    	else if (move.equals("exit")) {
     		gameCont = false;
     		cont = true;
     	}
