@@ -42,7 +42,7 @@ public class integration {
       System.out.println("e: Array demo");
       System.out.println("f: HashMap demo");
       System.out.println("g: Operators demo");
-      System.out.println("x: Experimental");
+      System.out.println("h: Take a walk");
       System.out.println("Type 'Quit' to stop the program");
 
       String caseVal = scan.nextLine(); // Which case to run
@@ -120,7 +120,7 @@ public class integration {
           operators();
           break;
          
-        case "x":
+        case "h":
           cont = false;
           gameAttempt();
           break;
@@ -174,6 +174,7 @@ public class integration {
     }
     
     int score = 0;
+    int scoreTwo = 0;
     int posX = 2;
     int posY = 2;
     grid[posY][posX] = '0';
@@ -223,11 +224,18 @@ public class integration {
     		gameCont = false;
     		cont = true;
     	}
+    	else if (move.equals("dlc")) {
+    	  grid[2][2] = '#';
+    	  printGrid(grid);
+    	}
     	else {
     		printGrid(grid);
     		System.out.println(score);
+    		System.out.println(scoreTwo);
     	}
-    	
+    	if ( grid[posY][posX] == '#') {  //not working yet
+    	  scoreTwo++ ;
+    	}
     			
     }
     
