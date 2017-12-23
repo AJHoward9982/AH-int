@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 /**
- * Andrew Howard
- * 
+ * @author Andrew
  *
  */
 
@@ -43,11 +44,14 @@ public class integration {
       System.out.println("f: HashMap demo");
       System.out.println("g: Operators demo");
       System.out.println("h: Take a walk");
+      System.out.println("i: Array Search");
+      System.out.println("j: This is an example of inheritance and polymorphism");
+      System.out.println("k: Prints out a queue");
       System.out.println("Type 'Quit' to stop the program");
 
       String caseVal = scan.nextLine(); // Which case to run
 
-      switch (caseVal) {
+      switch (caseVal.toLowerCase()) {     //String manipulation to convert all input to lowercase for case
 
         case "a":
           dataDemo();
@@ -124,7 +128,35 @@ public class integration {
           cont = false;
           gameAttempt();
           break;
-
+        case "i":
+          System.out.println("Paste in a 6 x 6 2D Array to search.");
+          /*
+           * 1 1 1 0 0 0
+			 0 1 0 0 0 0
+			 1 1 1 0 0 0
+			 0 0 2 4 4 0
+			 0 0 0 2 0 0
+			 0 0 1 2 4 0
+			 
+			 Example 2D array
+           */
+          
+          arraySearch.searchArray(args);
+          break;
+          
+        case "j":
+          oldCadillac cadillac = new oldCadillac();
+          cadillac.aboutCar();
+          
+          oldChevy chevy = new oldChevy();
+          chevy.aboutCar();
+          
+          break;
+          
+        case "k":
+          queueDemo();
+          break;
+        
         case "Quit":
           cont = false;
           break;
@@ -333,4 +365,64 @@ public class integration {
 
   }
 
+  public static class car{
+	  
+	  String color = "Red";
+	  int year;
+	  
+	  public void aboutCar() {
+		  System.out.println("My " + year + " Cadillac is " + color);
+	  }
+	  
+
+  }
+  
+  public static class oldCadillac extends car{
+	  int year = 1950;
+	  
+	  public void aboutCar() {
+		  System.out.println("My " + year + " Cadillac is " + color);
+	  }
+  }
+  
+  public static class oldChevy extends car{
+	  int year = 1980;
+	  String accent = "black"; //extra color
+	  
+	  public void aboutCar() {
+		  System.out.println("My " + year + " Chevy is " + color + " and " + accent);
+	  }
+  }
+  
+  public static void printQueue(Queue<String> queue) {
+	  for(int i = 0; i < queue.size() + 2; i++) {
+		  System.out.println(queue.remove());
+	  }
+  }
+  
+  public static void queueDemo() {
+	  Boolean queueCont = true;
+	  
+	  /*Scanner stopQueue = new Scanner(System.in);     moved this into the while loop
+	  String search = stopQueue.nextLine();*/
+	  
+	  System.out.println(" Type in elements to add to the queue and they will be printed back"
+	  		+ " in the order of the queue. Type in 'stop' when you are done.");
+	  
+	  Queue<String> queue = new LinkedList<String>();
+	  
+	  while (queueCont == true) {
+		  
+		  Scanner stopQueue = new Scanner(System.in);
+		  String search = stopQueue.nextLine();
+		  
+		  queue.add(search);
+		  
+		  if ( search.equals("stop")) {
+			  queueCont = false;
+		  }
+	  }
+	  printQueue(queue);
+  
+  }
 }
